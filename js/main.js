@@ -43,31 +43,6 @@ function showProducts() {
     alert(message);
 }
 
-//COMPRAR PRODUCTOS
-function buyProducts() {
-    let products = listProducts();
-    let total = 0;
-    let keepBuy = true;
-    
-    while(keepBuy) {
-        let product = prompt("Ingresa el producto que quieras comprar: ");
-        if (product in products) {
-            let quantity = Number(prompt(`Ingresa la cantidad de ${product} que quieras comprar:`));
-            total += products[product] * quantity;
-            keepBuy = confirm("¿Quieres seguir comprando?");
-        } else {
-            alert("Ese producto no está en la lista.");
-        }
-    }
-    alert(`Total a pagar: S/ ${total}`);
-    console.log(`Total a pagar: S/ ${total}`);
-}
-
-//EJECUTAR LISTA DE PRODUCTOS
-showProducts();
-//EJECUTAR COMPRA DE PRODUCTOS
-buyProducts();
-
 //! CALCULANDO IGV - SUBTOTAL DE PRODUCTO -------------*
 function calcularIGV(price, igvPorcentaje) {
     const IGV = price * igvPorcentaje;
