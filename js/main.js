@@ -1,5 +1,5 @@
-//! PRE ENTREGA 1
-//? LOGIN
+//? PRE ENTREGA 1
+//! LOGIN---------------------------------------------*
 let username;
 let password;
 let passLenght;
@@ -19,49 +19,69 @@ while(!username || !password || !passLenght > 14){
     }
 }
 
-alert("Te damos la bienvenida a nuestra tienda: " + username);
+console.log("Tu nombre de usuario es: " + username + "\n" + "Y tu contraseña es: "+ password);
 
-//? COMPRAR PRODUCTO
-/* function listProducts () {
-
+//! COMPRAR PRODUCTO----------------------------------*
+//LISTA DE PRODUCTOS
+function listProducts() {
+    let products = {
+        Joggers: 35,
+        Polos: 25,
+        Vinchas: 5,
+        Peinetas: 7,
+        Medias: 10,
+        Toallas: 18,
+        Camisas: 25,
+    };
+    return products;
 }
 
-let products = prompt("Escoge un producto: ") ;
-
-while(){
-
-    if (products = "") {
-        alert("El producto selecionado es: " + selectProduct)
-    } else {
-        alert("No seleccionaste ningún producto")
+//MOSTRAR LISTA
+function showProducts() {
+    let products = listProducts();
+    let message = "Estos son nuestros productos en stock:\n";
+    for (let product in products) {
+        message += `${product}: S/ ${products[product]}\n`;
     }
+    alert(message);
+}
 
-} */
+//COMPRAR PRODUCTOS
+function buyProducts() {
+    let products = listProducts();
+    let total = 0;
+    let keepBuy = true;
+    
+    while(keepBuy) {
+        let product = prompt("Ingresa el producto que quieras comprar: ");
+        if (product in products) {
+            let quantity = Number(prompt(`Ingresa la cantidad de ${product} que quieras comprar:`));
+            total += products[product] * quantity;
+            keepBuy = confirm("¿Quieres seguir comprando?");
+        } else {
+            alert("Ese producto no está en la lista.");
+        }
+    }
+    alert(`Total a pagar: S/ ${total}`);
+    console.log(`Total a pagar: S/ ${total}`);
+}
 
+//EJECUTAR LISTA DE PRODUCTOS
+showProducts();
+//EJECUTAR COMPRA DE PRODUCTOS
+buyProducts();
 
-//? CALCULANDO IGV - SUBTOTAL DE PRODUCTO
-/* function calcularIGV(price, igvPorcentaje) {
+//! CALCULANDO IGV - SUBTOTAL DE PRODUCTO -------------*
+function calcularIGV(price, igvPorcentaje) {
     const IGV = price * igvPorcentaje;
     return IGV;
 }
 
-const productPrice = Number(prompt("Ingrese el precio del producto: "));
+const productPrice = Number(prompt("Ingrese el precio del producto a calcular el IGV: "));
 const igvPorcentaje = 0.18; //En Perú, el IGV es del 18%
 
 const igvCalculado = calcularIGV(productPrice, igvPorcentaje);
 const subtotal = productPrice - igvCalculado;
 
 console.log(`El IGV calculado es: ${igvCalculado.toFixed(2)}`);
-console.log(`El subtotal es: ${subtotal.toFixed(2)}`); */
-
-//!--------------------------------------------------------*
-// TEST
-/* function calcularIgv (productPrice)     {
-    const IGV_PORCENTAJE = 0.18;
-    const IGV = productPrice * IGV_PORCENTAJE;
-    return IGV;
-}
-
-const price = 35;
-const igvCalculado = calcularIgv (price);
-console.log("El IGV del producto es: " + igvCalculado); */
+console.log(`El subtotal es: ${subtotal.toFixed(2)}`);
