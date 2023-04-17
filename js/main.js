@@ -1,25 +1,22 @@
 //? PRE ENTREGA 1
-//! LOGIN---------------------------------------------*
-let username;
-let password;
-let passLenght;
 
-while(!username || !password || !passLenght > 14){
+//! CARGA DATOS PARA REGISTRO
+alert("Por favor, regístrate para comenzar a comprar.");
+
+let username = "";
+let password = "";
+
+while (username === ""){
     username = prompt("Ingresa un nombre de usuario: ");
-    password = prompt("Ingresa una contraseña: ");
-
-    passLenght=password.length;
-
-    if (!username) {
-        alert("Debes ingresar un nombre de usuario: ");
-    } else if (!password){
-        alert("Debes ingresar una contraseña: ");
-    } else if (passLenght > 14){
-        alert("La contraseña no puede tener más de 14 caracteres")
-    }
 }
 
-console.log("Tu nombre de usuario es: " + username + "\n" + "Y tu contraseña es: "+ password);
+while (password === "" || password.length<8 || password.length>14){
+    password = prompt("Ingresa una contraseña (entre 8 y 14 caracteres): ");
+}
+
+alert("Registro exitoso.\nTe damos la bienvenida a nuestra tienda " + username);
+
+console.log("Guarda esta información en un lugar seguro para tus futuras compras.\n\nNombre de usuario: " + username + "\n" + "Contraseña: " + password);
 
 //! COMPRAR PRODUCTO----------------------------------*
 //LISTA DE PRODUCTOS
@@ -39,7 +36,7 @@ function listProducts() {
 //MOSTRAR LISTA
 function showProducts() {
     let products = listProducts();
-    let message = "Estos son nuestros productos en stock:\n";
+    let message = "Estos son nuestros productos en stock:\n\n";
     for (let product in products) {
         message += `${product}: S/ ${products[product]}\n`;
     }
@@ -83,5 +80,9 @@ const igvPorcentaje = 0.18; //En Perú, el IGV es del 18%
 const igvCalculado = calcularIGV(productPrice, igvPorcentaje);
 const subtotal = productPrice - igvCalculado;
 
+alert(`El IGV calculado es: ${igvCalculado.toFixed(2)}`);
+alert(`El subtotal es: ${subtotal.toFixed(2)}`);
 console.log(`El IGV calculado es: ${igvCalculado.toFixed(2)}`);
 console.log(`El subtotal es: ${subtotal.toFixed(2)}`);
+
+alert ("Agredecemos tu preferencia. \nEsperamos verte de nuevo pronto.")
