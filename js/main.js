@@ -33,16 +33,6 @@ function listProducts() {
     return products;
 }
 
-//MOSTRAR LISTA
-function showProducts() {
-    let products = listProducts();
-    let message = "Estos son nuestros productos en stock:\n\n";
-    for (let product in products) {
-        message += `${product}: S/ ${products[product]}\n`;
-    }
-    alert(message);
-}
-
 //! CALCULANDO IGV - SUBTOTAL DE PRODUCTO -------------*
 function calcularIGV(price, igvPorcentaje) {
     const IGV = price * igvPorcentaje;
