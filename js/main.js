@@ -25,13 +25,13 @@ console.log("Tu nombre de usuario es: " + username + "\n" + "Y tu contraseña es
 //LISTA DE PRODUCTOS
 function listProducts() {
     let products = {
-        Joggers: 35,
-        Polos: 25,
-        Vinchas: 5,
-        Peinetas: 7,
-        Medias: 10,
-        Toallas: 18,
-        Camisas: 25,
+        joggers: 35,
+        polos: 25,
+        vinchas: 5,
+        peinetas: 7,
+        medias: 10,
+        toallas: 18,
+        camisas: 25,
     };
     return products;
 }
