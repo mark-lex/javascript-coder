@@ -16,7 +16,7 @@ while (password === "" || password.length<8 || password.length>14){
 
 alert("Registro exitoso.\nTe damos la bienvenida a nuestra tienda " + username);
 
-console.log("Guarda esta información en un lugar seguro para tus futuras compras.\n\nNombre de usuario: " + username + "\n" + "Contraseña: " + password);
+console.log("Guarda esta información en un lugar seguro para tus futuras compras.\nNombre de usuario: " + username + "\n" + "Contraseña: " + password) + "\n";
 
 //! COMPRAR PRODUCTO----------------------------------*
 //LISTA DE PRODUCTOS
