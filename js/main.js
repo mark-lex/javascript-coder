@@ -1,6 +1,5 @@
 //? PRE ENTREGA 1
-
-//! CARGA DATOS PARA REGISTRO
+//! CARGA DATOS PARA REGISTRO -------------------------*
 alert("Por favor, regístrate para comenzar a comprar.");
 
 let username = "";
@@ -18,7 +17,7 @@ alert("Registro exitoso.\nTe damos la bienvenida a nuestra tienda " + username);
 
 console.log("Guarda esta información en un lugar seguro para tus futuras compras.\nNombre de usuario: " + username + "\n" + "Contraseña: " + password) + "\n";
 
-//! COMPRAR PRODUCTO----------------------------------*
+//! REALIZANDO COMPRA DE LOS PRODUCTOS ----------------*
 //LISTA DE PRODUCTOS
 function listProducts() {
     let products = {
@@ -32,6 +31,41 @@ function listProducts() {
     };
     return products;
 }
+
+//MOSTRAR LISTA
+function showProducts() {
+    let products = listProducts();
+    let message = "Estos son nuestros productos en stock:\n\n";
+    for (let product in products) {
+        message += `${product}: S/ ${products[product]}\n`;
+    }
+    alert(message);
+}
+
+//COMPRAR PRODUCTOS
+function buyProducts() {
+    let products = listProducts();
+    let total = 0;
+    let keepBuy = true;
+    
+    while(keepBuy) {
+        let product = prompt("Ingresa el producto que quieras comprar: ");
+        if (product in products) {
+            let quantity = Number(prompt(`Ingresa la cantidad de ${product} que quieras comprar:`));
+            total += products[product] * quantity;
+            keepBuy = confirm("¿Quieres seguir comprando?");
+        } else {
+            alert("Ese producto no está en la lista.");
+        }
+    }
+    alert(`Total a pagar: S/ ${total}`);
+    console.log(`Total a pagar: S/ ${total}`);
+}
+
+//EJECUTAR LISTA DE PRODUCTOS
+showProducts();
+//EJECUTAR COMPRA DE PRODUCTOS
+buyProducts();
 
 //! CALCULANDO IGV - SUBTOTAL DE PRODUCTO -------------*
 function calcularIGV(price, igvPorcentaje) {
